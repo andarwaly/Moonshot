@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Bundle {
     
@@ -21,6 +22,9 @@ extension Bundle {
         }
         
         let decoder = JSONDecoder()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "y-MM-dd"
+        decoder.dateDecodingStrategy = .formatted(formatter)
         
         // Using do block for cathing error
         do {

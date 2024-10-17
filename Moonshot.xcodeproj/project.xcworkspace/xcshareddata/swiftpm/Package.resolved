@@ -1,0 +1,15 @@
+{
+  "originHash" : "e6c30bdc8c15f59ddcc3a29a34621843315f29a5db897fe3881ceaa0e62516a0",
+  "pins" : [
+    {
+      "identity" : "versaui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andarwaly/VersaUI.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bc2e6509579b4f8c299f4501b4c4cd34a5c0a83a"
+      }
+    }
+  ],
+  "version" : 3
+}

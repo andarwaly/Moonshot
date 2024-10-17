@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D92BADE92CC136F50022E65A /* VersaUI in Frameworks */ = {isa = PBXBuildFile; productRef = D92BADE82CC136F50022E65A /* VersaUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		D96F5BED2CC0EE120034F776 /* Moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92BADE92CC136F50022E65A /* VersaUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = Moonshot;
 			packageProductDependencies = (
+				D92BADE82CC136F50022E65A /* VersaUI */,
 			);
 			productName = Moonshot;
 			productReference = D96F5BED2CC0EE120034F776 /* Moonshot.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = D96F5BE42CC0EE120034F776;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D92BADE72CC136F50022E65A /* XCRemoteSwiftPackageReference "VersaUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D96F5BEE2CC0EE120034F776 /* Products */;
 			projectDirPath = "";
@@ -322,6 +331,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D92BADE72CC136F50022E65A /* XCRemoteSwiftPackageReference "VersaUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/andarwaly/VersaUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D92BADE82CC136F50022E65A /* VersaUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D92BADE72CC136F50022E65A /* XCRemoteSwiftPackageReference "VersaUI" */;
+			productName = VersaUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D96F5BE52CC0EE120034F776 /* Project object */;
 }
