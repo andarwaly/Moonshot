@@ -20,7 +20,6 @@ struct MissionView: View {
     var body: some View {
         ScrollView {
             VStack (spacing: 32) {
-                
                 // Image container
                 VStack {
                     Image(mission.image)
@@ -38,37 +37,19 @@ struct MissionView: View {
                 VStack (alignment: .leading, spacing: 12) {
                     Text("Crews")
                         .font(.title2.bold())
-                        .foregroundStyle(VersaColor.Neutral.Text.primary)
+                        .foregroundStyle(VersaColor.Neutral.Foreground.primary)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack (spacing: 16) {
                             ForEach(crew, id: \.role) { crewMember in
                                 NavigationLink {
-                                    Text("Astronaut Detail Page")
+                                    AstronautView(astronaut: crewMember.astronauts)
                                 } label: {
-                                    HStack (alignment: .top, spacing: 0) {
-                                        Image(crewMember.astronauts.id)
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 80, height: 80)
-                                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                                            .padding(6)
-                                        
-                                        VStack (alignment: .leading, spacing: 4) {
-                                            Text(crewMember.astronauts.name)
-                                                .foregroundStyle(VersaColor.Neutral.Text.primary)
-                                                .font(.headline)
-                                            Text(crewMember.role)
-                                                .foregroundStyle(VersaColor.Neutral.Text.secondary)
-                                                .font(.subheadline)
-                                        }
-                                        .padding([.vertical, .trailing], 12)
-                                        .padding(.leading, 6)
-                                        
-                                    }
-                                    .background(RoundedRectangle(cornerRadius: 8)
-                                        .fill(VersaColor.Neutral.Background.secondary)
-                                        .stroke(VersaColor.Neutral.Border.subtle, lineWidth: 1))
+                                    MissionPageLayout(
+                                        image: crewMember.astronauts.id,
+                                        member: crewMember.astronauts.name,
+                                        role: crewMember.role
+                                    )
                                 }
                             }
                         }
@@ -77,15 +58,15 @@ struct MissionView: View {
                 }
                 
                 Divider()
-
+                
                 // Text Container
                 VStack (alignment: .leading, spacing: 12) {
                     Text("Mission Highlight")
                         .font(.title2.bold())
-                        .foregroundStyle(VersaColor.Neutral.Text.primary)
+                        .foregroundStyle(VersaColor.Neutral.Foreground.primary)
                     
                     Text(mission.description)
-                        .foregroundStyle(VersaColor.Neutral.Text.secondary.opacity(0.8))
+                        .foregroundStyle(VersaColor.Neutral.Foreground.secondary.opacity(0.8))
                         .lineSpacing(2)
                 }
             }
@@ -100,7 +81,7 @@ struct MissionView: View {
     // Custom initializer
     init(mission: Mission, astronauts: [String: Astronaut]) {
         self.mission = mission
-    
+        
         self.crew = mission.crew.map { member in
             if let astronaut = astronauts[member.name] {
                 return CrewMember(role: member.role, astronauts: astronaut)
@@ -114,6 +95,6 @@ struct MissionView: View {
 #Preview {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
-
+    
     return MissionView(mission: missions[0], astronauts: astronauts)
 }
